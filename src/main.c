@@ -17,9 +17,18 @@ int main(int argc, char** argv){
     if(strcmp(argv[1], "compile") == 0){
         char* source = read_ascii_file(argv[2]);
         TokenList tokens;
-        parser_start(&tokens, source);
-        
-   
+        token_list_create(&tokens, 1);
+        ParserStatus pstat = parser_start(&tokens, source);
+        if(pstat != PARSER_SUCCESS)
+            printf("Error With Parser");
+            return 1;
+
+        //TODO: Remove for debug
+        for(int i =0; i<tokens.ptr; i++){
+            Token* t = token_list_get(&tokens, i);
+            printf("%d, %d, %d\n", t->type, t->data, t->line);
+        }
+        token_list_destroy(&tokens);
         free(source);
     }
     return 0;
