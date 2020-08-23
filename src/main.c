@@ -3,8 +3,10 @@
 #include <string.h>
 
 #include "../include/util.h"
+#include "../include/token.h"
+#include "../include/parser.h"
 
-// LSD Compile
+// LSD compile <filename>.lsd
 
 int main(int argc, char** argv){
     if(argc < 3){
@@ -14,7 +16,10 @@ int main(int argc, char** argv){
 
     if(strcmp(argv[1], "compile") == 0){
         char* source = read_ascii_file(argv[2]);
-        // printf("%s\n", source);
+        TokenList tokens;
+        parser_start(&tokens, source);
+        
+   
         free(source);
     }
     return 0;

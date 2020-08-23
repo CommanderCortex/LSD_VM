@@ -20,8 +20,10 @@ struct _TokenList{
 
 typedef struct _TokenList TokenList;
 
-TokenList* token_list_create(int size); 
-void token_list_destroy(TokenList* list);
+//TokenList* token_list_create(int size); 
+void token_list_add(TokenList* list, Token* tok);
+Token* token_list_get(TokenList* list, int index);
+//void token_list_destroy(TokenList* list);
 
 
 #endif //LSD_TOKEN_H
