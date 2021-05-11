@@ -19,3 +19,7 @@
 ## Instructions - Binary Operations
 
 * `leaq` 	- S, D; Load effective address of source into destination 
+
+## Shift Operators 
+
+* `sal / shl ` - k, D; Left shift destination by k bits
